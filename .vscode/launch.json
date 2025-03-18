@@ -1,0 +1,35 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python 调试程序: 当前文件",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "--is_training", "1",
+                "--root_path", "./dataset/",
+                "--data_path", "electricity.csv",
+                "--model_id", "Electricity_336_96",    // 假设 $seq_len=96, $pred_len=48（需手动替换）
+                "--model", "Nlinear",            // 假设 $model_name=Transformer
+                "--data", "custom",
+                "--features", "M",
+                "--seq_len", "96",                   // 替换 $seq_len 为实际值
+                "--pred_len", "48",                  // 替换 $pred_len 为实际值
+                "--enc_in", "321",
+                "--des", "Exp",
+                "--itr", "1",
+                "--batch_size", "16",
+                "--learning_rate", "0.005",
+                "--individual"                       // 布尔标志（无需值）
+            ],
+
+        },
+    ]
+    
+
+}

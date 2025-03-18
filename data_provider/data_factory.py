@@ -9,26 +9,26 @@ data_dict = {
     'custom': Dataset_Custom,
 }
 
-
+#flag为train、test、pred
 def data_provider(args, flag):
     Data = data_dict[args.data]
-    timeenc = 0 if args.embed != 'timeF' else 1
-    train_only = args.train_only
+    timeenc = 0 if args.embed != 'timeF' else 1#时间特征的编码方式
+    train_only = args.train_only#是否只用训练集
 
     if flag == 'test':
         shuffle_flag = False
         drop_last = False
         batch_size = args.batch_size
-        freq = args.freq
+        freq = args.freq#周期特征编码：小时、周、月
     elif flag == 'pred':
         shuffle_flag = False
         drop_last = False
-        batch_size = 1
+        batch_size = 1#预测时逐步预测
         freq = args.freq
         Data = Dataset_Pred
     else:
-        shuffle_flag = True
-        drop_last = True
+        shuffle_flag = True#打乱数据
+        drop_last = True#丢弃末尾batch，避免小batch影响稳定性
         batch_size = args.batch_size
         freq = args.freq
 
