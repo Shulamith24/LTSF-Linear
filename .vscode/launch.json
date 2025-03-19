@@ -3,24 +3,25 @@
     // 悬停以查看现有属性的描述。
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": [
+    "configurations": [        
         {
-            "name": "Python 调试程序: 当前文件",
+            "name": "Python 调试程序: 长预测调试",
             "type": "debugpy",
             "request": "launch",
-            "program": "${file}",
+            "program": "${workspaceFolder}/run_longExp.py",
             "console": "integratedTerminal",
+            // "justMyCode":false,
             "args": [
                 "--is_training", "1",
                 "--root_path", "./dataset/",
-                "--data_path", "electricity.csv",
-                "--model_id", "Electricity_336_96",    // 假设 $seq_len=96, $pred_len=48（需手动替换）
-                "--model", "Nlinear",            // 假设 $model_name=Transformer
-                "--data", "custom",
+                "--data_path", "ETT/ETTh1.csv",
+                "--model_id", "ETTh1_336'_'96",
+                "--model", "NLinear",            // 假设 $model_name=Transformer
+                "--data", "ETTh1",
                 "--features", "M",
-                "--seq_len", "96",                   // 替换 $seq_len 为实际值
-                "--pred_len", "48",                  // 替换 $pred_len 为实际值
-                "--enc_in", "321",
+                "--seq_len", "336",                   // 替换 $seq_len 为实际值
+                "--pred_len", "96",                  // 替换 $pred_len 为实际值
+                "--enc_in", "7",
                 "--des", "Exp",
                 "--itr", "1",
                 "--batch_size", "16",

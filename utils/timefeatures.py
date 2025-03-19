@@ -9,13 +9,13 @@ from pandas.tseries.frequencies import to_offset
 class TimeFeature:
     def __init__(self):
         pass
-
+    
+    #使类实例可以调用，
     def __call__(self, index: pd.DatetimeIndex) -> np.ndarray:
         pass
-
+    #提供类的字符串表示形式、输出类名和空括号
     def __repr__(self):
         return self.__class__.__name__ + "()"
-
 
 class SecondOfMinute(TimeFeature):
     """Minute of hour encoded as value between [-0.5, 0.5]"""
